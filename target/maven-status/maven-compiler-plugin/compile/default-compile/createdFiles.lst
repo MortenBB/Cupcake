@@ -1,0 +1,9 @@
+Users\User.class
+datamapper\DataMapperInterface.class
+dbconnector\DBConnector.class
+servlet\Control.class
+datamapper\DataMapperTest.class
+datasource\DataSource1.class
+datamapper\DataMapper.class
+servlet\FinalPrice.class
+logic\PriceCalculator.class

@@ -52,19 +52,19 @@ public class DBConnector
         }
     }
     
-//    public ResultSet executeQuery(String sql) throws SQLException
-//    {
-//        statement = connection.createStatement();
-//        resultSet = statement.executeQuery(sql);
-//        
-//        return resultSet;
-//    }
-//    
-//    public void executeUpdate(String sql) throws SQLException
-//    {
-//        statement = connection.createStatement();
-//        statement.executeUpdate(sql);
-//    }
+    public ResultSet executeQuery(String sql) throws SQLException
+    {
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(sql);
+        
+        return resultSet;
+    }
+    
+    public void executeUpdate(String sql) throws SQLException
+    {
+        statement = connection.createStatement();
+        statement.executeUpdate(sql);
+    }
     
     public PreparedStatement preparedStatement(String sql) throws SQLException
     {

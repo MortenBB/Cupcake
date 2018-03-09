@@ -1,3 +1,4 @@
+Orders\Order.class
 Users\User.class
 datamapper\DataMapperInterface.class
 dbconnector\DBConnector.class

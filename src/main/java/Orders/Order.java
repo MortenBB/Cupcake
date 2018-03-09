@@ -12,7 +12,16 @@ package Orders;
 public class Order {
 
     private String top;
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
     private String bottom;
+    private int amount;
     private int price;
 
     public void setTop(String top) {
@@ -33,7 +42,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order:" + "top= " + top + ", bottom= " + bottom + ", price= " + price + "kr.";
+        return "Order:" + "top= " + top + ", bottom= " + bottom + ", amount= " + amount + ", price= " + price + "kr.";
     }
 
     public String getBottom() {
@@ -44,9 +53,10 @@ public class Order {
         return price;
     }
 
-    public Order(String top, String bottom, int price) {
+    public Order(String top, String bottom, int amount, int price) {
         this.top = top;
         this.bottom = bottom;
+        this.amount = amount;
         this.price = price;
     }
 }

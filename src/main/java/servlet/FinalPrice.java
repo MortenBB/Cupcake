@@ -5,6 +5,10 @@
  */
 package servlet;
 
+import datamapper.DataMapper;
+import datasource.DataSource1;
+import Orders.Order;
+import Users.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,6 +25,12 @@ import logic.PriceCalculator;
 @WebServlet(name = "FinalPrice", urlPatterns = {"/FinalPrice"})
 public class FinalPrice extends HttpServlet {
 
+    DataMapper dm;
+
+    public FinalPrice() {
+        dm = new DataMapper(new DataSource1().getDataSource());
+    }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
@@ -29,9 +39,9 @@ public class FinalPrice extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         PriceCalculator cal = new PriceCalculator();
         response.setContentType("text/html;charset=UTF-8");
 
@@ -40,21 +50,11 @@ public class FinalPrice extends HttpServlet {
         int amount = Integer.parseInt(request.getParameter("amount"));
         int price = cal.calculator(bottom, top, amount);
         System.out.println(price);
-        try (PrintWriter out = response.getWriter()) {
+        dm.createOrder(new Order(top, bottom, amount, price));
+        response.sendRedirect("confirmation.jsp");
 
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet FinalPrice</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>" + "Your order of "+ amount + " " + bottom +" cupcakes with "+ top +" frosting has been received"+"</h1>");
-            out.println("<h1>" + "The final price is: " + price +"kr."+ "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

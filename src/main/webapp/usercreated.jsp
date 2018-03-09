@@ -11,7 +11,7 @@
         
         <p>USER CREATED</p>
         
-        <a href="Index.jsp">BACK...</a>
+        <a href="index.jsp">BACK...</a>
         
     </body>
 </html>

@@ -11,7 +11,7 @@ public class DataSource1
         dataSource.setServerName("46.101.101.94");
         dataSource.setPort(3306);
         dataSource.setDatabaseName("cupcake");
-        dataSource.setUser("ruben1234");
+        dataSource.setUser("ruben");
         dataSource.setPassword("1234");
     }
     

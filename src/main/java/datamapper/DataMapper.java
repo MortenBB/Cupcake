@@ -1,5 +1,6 @@
 package datamapper;
 
+import Orders.Order;
 import Users.User;
 import java.util.ArrayList;
 import dbconnector.DBConnector;
@@ -18,32 +19,33 @@ public class DataMapper implements DataMapperInterface {
     }
 
 //    @Override
-//    public ArrayList<User> getUsers() {
-//        ArrayList<User> users = new ArrayList();
-//
-//        try {
-//            dbc.open();
-//
-//            String sql = "select * from user";
-//            ResultSet resultset = dbc.executeQuery(sql);
-//
-//            while (resultset.next()) {
-//                int userid = resultset.getInt("user.user_id");
-//                String username = resultset.getString("username");
-//                String userpassword = resultset.getString("password");
-//
-//                User u = new User(userid, username, userpassword);
-//
-//                users.add(u);
-//            }
-//
-//            dbc.close();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return users;
-//    }
+    public ArrayList<Order> getOrders() {
+        ArrayList<Order> orders = new ArrayList();
+
+        try {
+            dbc.open();
+
+            String sql = "select * from orders";
+            ResultSet resultset = dbc.executeQuery(sql);
+
+            while (resultset.next()) {
+                int price = resultset.getInt("price");
+                int amount = resultset.getInt("amount");
+                String top = resultset.getString("top");
+                String bottom = resultset.getString("bottom");
+
+                Order o = new Order(top, bottom, amount, price);
+
+                orders.add(o);
+            }
+
+            dbc.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return orders;
+    }
 //    @Override
 //    public ArrayList<User> getUsers(String un) {
 //        ArrayList<User> users = new ArrayList();
@@ -162,9 +164,30 @@ public class DataMapper implements DataMapperInterface {
         try {
             dbc.open();
 
-            String sql = "insert into user values("
+            String sql = "insert into users values("
                     + "'" + u.getUsername() + "', "
                     + "'" + u.getPassword() + "')";
+
+            dbc.executeUpdate(sql);
+
+            dbc.close();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+    public boolean createOrder(Order o) {
+        try {
+            dbc.open();
+
+            String sql = "insert into orders values("
+                    + "'" + o.getTop() + "', "
+                    + "'" + o.getBottom() + "', "
+                    + "'"+ o.getAmount() + "', "
+                    + "'"+ o.getPrice()+ "')";
 
             dbc.executeUpdate(sql);
 
@@ -190,7 +213,7 @@ public class DataMapper implements DataMapperInterface {
             ResultSet resultSet = dbc.executeQuery(sql);
              */
             //PreparedStatement
-            String sql = "select * from user where username = ? and password = ?";
+            String sql = "select * from users where username = ? and password = ?";
             PreparedStatement preparedStatement = dbc.preparedStatement(sql);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "Control", urlPatterns = { "/Control" })
-public class Control extends HttpServlet //TEST TEST
+public class Control extends HttpServlet
 {
     DataMapper dm;
 

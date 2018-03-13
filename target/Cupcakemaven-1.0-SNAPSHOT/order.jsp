@@ -25,7 +25,7 @@
 
             User user2 = (User) session.getAttribute("user");
             
-            if (user2 != null)
+            if (user != null)
             {
                 out.print("Login worked");
             }
@@ -33,11 +33,11 @@
             {
                 out.print("Login failed");
                 
-                user2 = new User("Guest", "none");
+                user = new User("Guest", "none");
             }
         %>
         <h1>
-            Logged in as: <%= user2 %>          
+            Logged in as: <%= user %>          
                     
         </h1>
         <form method="GET" action="Input.html">

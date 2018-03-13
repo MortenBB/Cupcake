@@ -10,9 +10,9 @@ public class DataSource1
     {
         dataSource.setServerName("46.101.210.44");
         dataSource.setPort(3306);
-        dataSource.setDatabaseName("cupcake");
-        dataSource.setUser("ruben1234");
-        dataSource.setPassword("1234");
+        dataSource.setDatabaseName("cupcakes");
+        dataSource.setUser("Jord");
+        dataSource.setPassword("l1nk1npark");
     }
     
     public MysqlDataSource getDataSource()

@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="CupcakeCSS.css" type="text/css">
         <title>WebProject - UserCreated</title>
     </head>
     <body>
@@ -11,7 +12,7 @@
         
         <p>USER CREATED</p>
         
-        <a href="Index.jsp">BACK...</a>
+        <a href="index.jsp">BACK...</a>
         
     </body>
 </html>

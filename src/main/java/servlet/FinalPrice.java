@@ -46,6 +46,7 @@ public class FinalPrice extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            out.println("<link rel=\"stylesheet\" href=\"CupcakeCSS.css\" type=\"text/css\">");
             out.println("<title>Servlet FinalPrice</title>");
             out.println("</head>");
             out.println("<body>");

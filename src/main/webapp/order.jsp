@@ -15,16 +15,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%            
-            DataMapper dm;
-            dm = new DataMapper(new DataSource1().getDataSource());
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            User user = dm.validateUser(username, password);
-
+        <%         
             User user2 = (User) session.getAttribute("user");
             
-            if (user != null)
+            if (user2 != null)
             {
                 out.print("Login worked");
             }
@@ -32,11 +26,11 @@
             {
                 out.print("Login failed");
                 
-                user = new User("Guest", "none");
+                user2 = new User("Guest", "none");
             }
         %>
         <h1>
-            Logged in as: <%= user %>          
+            Logged in as: <%= user2 %>          
                     
         </h1>
         <form method="GET" action="Input.html">

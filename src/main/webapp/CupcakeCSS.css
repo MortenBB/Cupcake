@@ -1,0 +1,29 @@
+
+body{
+    color:mintcream;
+    background-color:chocolate;
+}
+form{
+    color:mintcream;
+    background-color:chocolate;
+}
+body{
+position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    }
+body {
+    background-color: chocolate;
+    width: 500px;
+    height: 350px;
+    border: 25px solid saddlebrown;
+    padding: 25px;
+    margin: 25px;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

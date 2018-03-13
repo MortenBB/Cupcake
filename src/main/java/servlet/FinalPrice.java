@@ -52,7 +52,6 @@ public class FinalPrice extends HttpServlet {
         System.out.println(price);
         dm.createOrder(new Order(top, bottom, amount, price));
         response.sendRedirect("confirmation.jsp");
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -15,7 +15,13 @@ import datasource.DataSource1;
 public class PriceCalculator {
 
     DataMapper hit = new DataMapper(new DataSource1().getDataSource());
-
+/**
+ * Calculates and returns the price of the cupcake
+ * @param bottom
+ * @param top
+ * @param amount
+ * @return 
+ */
     public int calculator(String bottom, String top, int amount) {
         int topPrice = hit.priceTop(top);
         int bottomPrice = hit.priceBottom(bottom);

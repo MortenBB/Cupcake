@@ -19,6 +19,11 @@ public class DataMapper implements DataMapperInterface {
     }
 
 //    @Override
+
+    /**
+     * A method used to return all orders from the database as an arraylist
+     * @return ArrayList orders
+     */
     public ArrayList<Order> getOrders() {
         ArrayList<Order> orders = new ArrayList();
 
@@ -160,6 +165,11 @@ public class DataMapper implements DataMapperInterface {
 //    }
 //
 //    @Override
+    /**
+     * A method used to create a new user in the database
+     * @param u
+     * @return boolean
+     */
     public boolean createUser(User u) {
         try {
             dbc.open();
@@ -179,6 +189,11 @@ public class DataMapper implements DataMapperInterface {
 
         return false;
     }
+    /**
+     * A method used to create a new order in the database 
+     * @param o
+     * @return boolean
+     */
     public boolean createOrder(Order o) {
         try {
             dbc.open();
@@ -200,7 +215,12 @@ public class DataMapper implements DataMapperInterface {
 
         return false;
     }
-
+  /**
+   * A method that checks if the user exists in the database and return the user if it does.
+   * @param username
+   * @param password
+   * @return User user
+   */
     public User validateUser(String username, String password) {
         User user = null;
 
@@ -230,7 +250,11 @@ public class DataMapper implements DataMapperInterface {
 
         return user;
     }
-
+ /**
+  * returns the price of a cupcake bottom from the database
+  * @param bottom
+  * @return int Price
+  */
     public int priceBottom(String bottom) {
         int price = 0;
         try {
@@ -245,7 +269,11 @@ public class DataMapper implements DataMapperInterface {
         }
         return price;
     }
-
+/**
+ * Returns the price of a cupcake top from the databse
+ * @param top
+ * @return int Price
+ */
     public int priceTop(String top) {
         int price = 0;
         try {
